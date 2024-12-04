@@ -78,4 +78,13 @@ class PlayersController {
         $player = (new \App\Models\Player)->find($id);
         return require '../resources/views/players/delete.blade.php';
     }
+    public function show($id) {
+        // Mostrar detalles del jugador
+        $player = (new \App\Models\Player)->find($id);
+        if (!$player) {
+            header('Location: /players');
+            exit();
+        }
+        require '../resources/views/players/show.blade.php';
+    }
 }

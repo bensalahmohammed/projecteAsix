@@ -14,6 +14,7 @@ return [
     '/books/delete/{id}' => '../App/Controllers/BookController.php@delete',
     '/books/destroy/{id}' => '../App/Controllers/BookController.php@destroy',
     '/books/confirm-delete/{id}' => '../App/Controllers/BookController.php@confirmDelete',
+    '/books/show/{id}' => '../App/Controllers/BookController.php@show',
     '/players' => '../App/Controllers/PlayersController.php@index',
     '/players/create' => '../App/Controllers/PlayersController.php@create',
     '/players/store' => '../App/Controllers/PlayersController.php@store',
@@ -22,6 +23,8 @@ return [
     '/players/delete/{id}' => '../App/Controllers/PlayersController.php@delete',
     '/players/destroy/{id}' => '../App/Controllers/PlayersController.php@destroy',
     '/players/confirm-delete/{id}' => '../App/Controllers/PlayersController.php@confirmDelete',
+    '/players/show/{id}' => '../App/Controllers/PlayersController.php@show', // Ruta añadida para mostrar un jugador
+
 
 
 ];

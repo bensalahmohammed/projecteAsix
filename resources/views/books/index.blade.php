@@ -104,8 +104,9 @@
             <td><?=$book->author;?></td>
             <td><?=$book->releaseYear;?></td>
             <td class="actions">
-                <a href="/books/edit/<?= $book->id?>" class="btn btn-warning btn-sm">Editar</a>
-                <a href="/books/confirm-delete/<?= $book->id?>" class="btn btn-danger btn-sm">Eliminar</a>
+                <a href="/books/show/<?= $book->id ?>" class="btn btn-info btn-sm">Mostrar</a>
+                <a href="/books/edit/<?= $book->id ?>" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/books/confirm-delete/<?= $book->id ?>" class="btn btn-danger btn-sm">Eliminar</a>
             </td>
         </tr>
         <?php endforeach; ?>

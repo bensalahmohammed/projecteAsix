@@ -66,4 +66,15 @@ class BookController {
         $book = (new \App\Models\Book)->find($id);
         return require '../resources/views/books/delete.blade.php';
     }
+    public function show($id) {
+        $book = (new \App\Models\Book)->find($id);
+        if (!$book) {
+            // Si no se encuentra el libro, redirigir a la lista
+            header('Location: /books');
+            exit();
+        }
+        // Cargar la vista para mostrar los detalles del libro
+        require '../resources/views/books/show.blade.php';
+    }
+
 }

@@ -15,21 +15,23 @@
         h1 {
             color: #007bff;
             text-align: center;
-            margin-top: 30px;
+            color: #007bff;
+            margin-bottom: 30px;
         }
-        .table-container {
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 30px;
+        .btn-create {
+            margin-bottom: 20px;
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            background-color: #007bff;
+            color: white;
         }
         table {
             width: 100%;
-            margin-bottom: 20px;
+            border-collapse: collapse;
         }
         table th, table td {
-            padding: 10px;
+            padding: 15px;
             text-align: center;
         }
         table th {
@@ -39,26 +41,21 @@
         table td {
             background-color: #ffffff;
         }
-        .btn-create {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
+        a {
+            color: #007bff;
+            margin: 0 10px;
         }
-        .btn-create:hover {
-            background-color: #0056b3;
+        a:hover {
+            text-decoration: underline;
+        }
+        .actions a {
+            margin: 0 5px;
         }
         footer {
             background-color: #343a40;
             color: white;
             padding: 20px 0;
             text-align: center;
-            margin-top: 30px;
         }
     </style>
 </head>
@@ -77,7 +74,7 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/players">Jugadors</a>
+                    <a class="nav-link" href="/players">Jugadores</a>
                 </li>
             </ul>
         </div>
@@ -85,37 +82,40 @@
 </nav>
 
 <!-- Main Content -->
-<section class="container mt-5">
-    <h1>Llista de Jugadors</h1>
+<div class="container mt-5">
+    <h1>Llista de Jugadores</h1>
+    <a href="/players/create" class="btn btn-create">Crear Jugador</a>
 
-    <!-- Botón de creación -->
-    <a href="/players/create" class="btn-create">Crear Jugador</a>
-
-    <div class="table-container">
-        <table class="table table-bordered table-hover">
-            <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Equip</th>
-                <th scope="col">Posició</th>
-                <th scope="col">Any de Naixement</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($players as $player): ?>
-            <tr>
-                <td><?=$player->id;?></td>
-                <td><?=$player->name;?></td>
-                <td><?=$player->team;?></td>
-                <td><?=$player->position;?></td>
-                <td><?=$player->birthYear;?></td>
-            </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-</section>
+    <!-- Tabla de jugadores -->
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Posición</th>
+            <th scope="col">Año de Nacimiento</th>
+            <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($players as $player): ?>
+        <tr>
+            <td><?=$player->id;?></td>
+            <td><?=$player->name;?></td>
+            <td><?=$player->team;?></td>
+            <td><?=$player->position;?></td>
+            <td><?=$player->birthYear;?></td>
+            <td class="actions">
+                <a href="/players/show/<?= $player->id?>" class="btn btn-info btn-sm">Show</a>
+                <a href="/players/edit/<?= $player->id?>" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/players/confirm-delete/<?= $player->id?>" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
 <!-- Footer -->
 <footer>

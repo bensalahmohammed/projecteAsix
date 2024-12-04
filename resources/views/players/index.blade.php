@@ -106,8 +106,9 @@
             <td><?=$player->position;?></td>
             <td><?=$player->birthYear;?></td>
             <td class="actions">
-                <a href="/players/edit/<?= $player->id?>" class="btn btn-warning btn-sm">Editar</a>
-                <a href="/players/confirm-delete/<?= $player->id?>" class="btn btn-danger btn-sm">Eliminar</a>
+                <a href="/players/show/<?= $player->id ?>" class="btn btn-info btn-sm">Show</a>
+                <a href="/players/edit/<?= $player->id ?>" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/players/confirm-delete/<?= $player->id ?>" class="btn btn-danger btn-sm">Eliminar</a>
             </td>
         </tr>
         <?php endforeach; ?>
